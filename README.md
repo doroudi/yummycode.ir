@@ -1,4 +1,4 @@
-# Gridsome Blog Starter
+# Yummycode.ir Blog in Gridsome
 
 > A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
 
