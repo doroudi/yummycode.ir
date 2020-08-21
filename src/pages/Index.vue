@@ -1,27 +1,33 @@
 <template>
-  <Layout>
-    <ul class="post-list">
-      <li v-for="{ node } in $page.allWordPressPost.edges" :key="node.id">
-        <Post :post="node" />
-      </li>
-    </ul>
-    <Pager :info="$page.allWordPressPost.pageInfo" />
+  <Layout :show-logo="false">
+    <!-- Author intro -->
+    <Author :show-title="true" />
+
+    <!-- List posts -->
+    <div class="posts">
+      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+    </div>
+
   </Layout>
 </template>
 
 <page-query>
-query Home ($page: Int) {
-  allWordPressPost (page: $page, perPage: 10) @paginate {
-    pageInfo {
-      totalPages
-      currentPage
-    }
+query {
+  posts: allPost(filter: { published: { eq: true }}) {
     edges {
       node {
         id
         title
+        date (format: "D. MMMM YYYY")
+        timeToRead
+        description
+        cover_image (width: 770, height: 380, blur: 10)
         path
-        excerpt
+        tags {
+          id
+          title
+          path
+        }
       }
     }
   }
@@ -29,16 +35,16 @@ query Home ($page: Int) {
 </page-query>
 
 <script>
-import { Pager } from "gridsome";
-import Post from "~/components/Post.vue";
+import Author from '~/components/Author.vue'
+import PostCard from '~/components/PostCard.vue'
 
 export default {
   components: {
-    Pager,
-    Post
+    Author,
+    PostCard
   },
   metaInfo: {
-    title: ""
+    title: 'Hello, world!'
   }
-};
+}
 </script>

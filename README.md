@@ -1,39 +1,29 @@
-# WordPress starter for Gridsome
+# Gridsome Blog Starter
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gridsome/gridsome-starter-wordpress)
+> A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
+
+## Features
+- Beautiful and simple design.
+- Markdown for content.
+- Tags support.
+- Dark / Light toggle.
+- CSS variables, SCSS & BEM for styling.
+- 100, 100, 100, 100 score on Google Lighthouse.
+- Uses same front-matter fields as Dev.to.
+
+## Demo URL
+
+https://gridsome-starter-blog.netlify.com
 
 ## Install
 
-`gridsome create my-gridsome-project wordpress`
+### 1. Install Gridsome CLI tool if you don't have
 
-## Guide
+`npm install --global @gridsome/cli`
 
-Add your WordPress URL to the plugin options.
+### 2. Install this starter
 
-```js
-// gridsome.config.js
-
-module.exports = {
-  plugins: [
-    {
-      use: '@gridsome/source-wordpress',
-      options: {
-        baseUrl: 'YOUR_WEBSITE_URL', // required
-        typeName: 'WordPress', // GraphQL schema name
-      }
-    }
-  ],
-  // Setup template routes for any WordPress collection
-  templates: {
-    WordPressPost: '/:year/:month/:day/:slug',
-    WordPressTag: '/tag/:slug'
-  },
-}
-
-```
-
-See all [options](https://gridsome.org/plugins/@gridsome/source-wordpress).
-
-## Included templates
-
-This starter includes basic templates for categories, tags and posts.
+1. `gridsome create my-gridsome-site https://github.com/gridsome/gridsome-starter-blog.git`
+2. `cd my-gridsome-site` to open folder
+3. `gridsome develop` to start local dev server at `http://localhost:8080`
+4. Happy coding 🎉🙌

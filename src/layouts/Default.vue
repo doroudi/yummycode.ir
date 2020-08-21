@@ -1,108 +1,85 @@
 <template>
-  <div class="layout">
-    <div class="row">
-      <div class="sidebar">
-        <strong>
-          <g-link to="/">
-            <h1 class="title">Yummy Code!</h1>
-          </g-link>
-        </strong>
+  <div id="app">
+
+    <header class="header">
+      <div class="header__left">
+        <Logo v-if="showLogo" /> 
       </div>
-      <div class="content">
-        <slot />
+      
+      <div class="header__right">        
+        <ToggleTheme />
       </div>
-      <!-- <div class="sidebar-left"></div> -->
-    </div>
+    </header>
+
+    <main class="main">
+      <slot/>
+    </main>
+
+    <footer class="footer">
+      <span class="footer__copyright">کپی رایت © {{ new Date().getFullYear() }}. </span>
+      <span class="footer__links">قدرت گرفته از<a href="//gridsome.org"> Gridsome </a></span>
+    </footer>
+
   </div>
 </template>
 
-<style>
-a {
-  text-decoration: none;
-}
-body {
-  font-family: Shabnam, "Segoe UI";
-  background: #f0f4f7;
-  font-size: 16px;
-  margin: 35px;
-  direction: rtl;
-}
+<script>
+import Logo from '~/components/Logo.vue'
+import ToggleTheme from '~/components/ToggleTheme.vue'
 
-.title {
-  font-family: Freestyle Script;
-  text-align: center;
-  display: block;
-  padding: 2.5rem;
-  font-size: 2.9rem;
-  text-decoration: none;
-  direction: ltr;
-  margin: 0;
-  color: #444;
-  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 60s infinite linear;
+export default {
+  props: {
+    showLogo: { default: true }
+  },
+  components: {
+    Logo,
+    ToggleTheme
+  }
 }
+</script>
 
-.row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sidebar {
-  width: 280px;
-  height: 100vh;
-  background: #eceff1;
-}
-
-.sidebar-left {
-  width: 280px;
-  padding: 1.5rem 0.7rem;
-}
-
-img {
-  max-width: 100%;
-}
-
-nav[role="navigation"] {
-  text-align: center;
-}
-nav[role="navigation"] a {
-  display: inline-block;
-  margin: 1em 0.75em 2em;
-}
-
-.layout {
-  margin: 0 auto;
-  background: #fff;
-  min-height: calc(100vh - 75px);
-}
+<style lang="scss">
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-}
-.nav__link {
-  margin-left: 20px;
-}
-.post-list {
-  list-style: none;
-  padding-left: 0;
-}
-.post-list li {
-}
+  align-items: center;
+  min-height: var(--header-height);
+  padding: 0 calc(var(--space) / 2);
+  top:0;
+  z-index: 10;
 
-.content {
-  padding-top: 2.5rem;
-  flex: 1;
-}
-
-@-webkit-keyframes hue {
-  from {
-    -webkit-filter: hue-rotate(0deg);
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
   }
-  to {
-    -webkit-filter: hue-rotate(-360deg);
+
+  @media screen and (min-width: 1300px) {
+    //Make header sticky for large screens
+    position: sticky;
+    width: 100%;
+  }
+}
+
+.main {
+  margin: 0 auto;
+  padding: 1.5vw 15px 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space) / 2);
+  text-align: center;
+  font-size: .8em;
+
+  > span {
+    margin: 0 .35em;
+  }
+
+  a {
+    color: currentColor;
   }
 }
 </style>
