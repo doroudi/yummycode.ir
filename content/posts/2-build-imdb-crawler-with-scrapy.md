@@ -1,20 +1,29 @@
 ---
-title: scrapy
+title: ساخت خزنده وب با Scrapy
 date: 2020-08-21
 published: true
-tags: ['پایتون']
+tags: ['پایتون','scrapy', 'crawler', 'python', 'data-mining', 'tutorial']
 canonical_url: false
-description: "نحوه ساخت خزنده وب با پایتون و Scrapy"
+description: "در این یادداشت با Scrapy یک خزنده وب برای دریافت لیست فیلم های سایت Imdb خواهیم کرد و با مفاهیم پایه خزنده وب در یک مثال عملی آشنا می شویم."
 cover_image: ./images/2/scrapy.jpg
 ---
+
+> نکته:
+> 
+> این یادداشت را پیشتر در ویرگول [منتشر کرده بودم](https://virgool.io/@doroudi/%D8%B3%D8%A7%D8%AE%D8%AA-%D8%AE%D8%B2%D9%86%D8%AF%D9%87-%D9%88%D8%A8-%D8%A8%D8%A7-scrapy-q3i67sbemtm5) و با کمی اصلاح اینجا منتشر می شود
+
+
 
 اخیرا برای پروژه ای نیاز به استخراج داده از سایت IMDB داشتم ، البته خود سایت IMDB بخشی از اطلاعات فیلم ها رو بصورت فایل CSV در اختیارتون قرار میده ولی این اطلاعات چندان کامل نبود و مجبور شدم برای این کار یک خزنده وب با Scrapy ایجاد کنم در این یادداشت سعی میکنم فرایند توسعه این خزنده و البته نحوه استفاده از scrapy برای این منظور را توضیح بدهم.
 
 ## خزنده وب چیست؟
 
 خزنده وب یا Web Crawler ابزاری است که فرایند دریافت داده های موجود در صفحات وب را خودکار می کند، برای مثال دوست دارید لیست قیمت محصولات دیجیکالا را بصورت روزانه دریافت کنید و تغییرات را مقایسه کنید ، دیجیکالا هیچ API ای برای دسترسی به اطلاعات محصولاتش دراختیار عموم قرار نمیده ، پس یا باید به صورت دستی قیمت ها رو کپی کنیم 🙃 یا ابزاری داشته باشیم که این کار به صورت خودکار انجام بده ، خزنده های وب دقیقا برای این منظور ساخته شده اند. خزنده وب محتوای وبسایت را دانلود می کند و بخش هایی از سایت که محتوای مورد نظر ما اونجا قرار دارد رو استخراج میکند.
+
 ![خزنده وب چیست](./images/2/1.jpeg)
+
 ## اسکرپی چیست؟
+
 ![scrapy](./images/2/2.png)
 ابزارهای مختلفی برای داده کاوی در وب وجود داره ، یکی از راحت ترین اون ها پلاگین Data Scraper برای مرورگر کروم هست (البته پلن پولی داره) ، ولی اگر کمی برنامه نویسی بلد باشید ساخت یک خزنده وب با Scrapy اصلا کار سختی نیست ، در واقع Scrapy یک فریم ورک مبتنی بر پایتون برای ساخت خزنده های وب است. Scrapy فرایند ساخت ، اجرا و ذخیره خروجی خرنده وب رو پوشش میده. 
 
@@ -34,7 +43,9 @@ conda install -c conda-forge scrapy
 ```
 
 پس از پایان نصب می‌توانید از طریق دستور scrapy از موفق بودن نصب اون اطمینان حاصل کنید
+
 ![scrapy](./images/2/2.jpeg)
+
 ### تست Scrapy
 
 پیش از اینکه درگیر کدنویسی بشوید، می‌توانید با استفاده از شل scrapy از امکانات اون بصورت تعاملی استفاده کنید ، کار بسیار ساده است و کافیه با استفاده از دستور زیر وارد shell بشوید:
@@ -62,19 +73,19 @@ scrapy shell https://www.imdb.com/chart/top
 .lister-list .titleColumn a
 ```
 
-![](./images/2/3.jpeg)
+![scrapy selector](./images/2/3.jpeg)
 
 ```python
 response.css(".lister-list .titleColumn a::text").extract()
 ```
 
-![alt](./images/2/4.jpeg)
+![top movies of imdb scrapy](./images/2/4.jpeg)
 
 تبریک میگم ، به همین سادگی لیست فیلم های برتر موجود در وب سایت imdb رو استخراج کردیم.
 همانطور که مشخص است ، برای دریافت متن المان میتوان از text:: استفاده کرد و برای استخراج باید متد extract را بعد از انتخابگر css تان بنویسید. برای انتخاب المان نخست می‌توانید از extract_first استفاده کنید.
 انتخابگر xpath روشی دیگر برای انتخاب عناصر موجود در صفحه وب مبتنی بر xml است و می‌توانید با استفاده از ابزار Developer Tool موجود در مرورگرتان آدرس xpath مربوط به المان انتخابی تان را دریافت کنید
 
-![alt](./images/2/5.jpeg)
+![xpath selector chrome devtools for scrapy](./images/2/5.jpeg)
 
 برای مثال انتخابگر عنوان فیلم ها با xpath به شکل زیر است:
 
@@ -112,7 +123,54 @@ scrapy genspider topMovies https://www.imdb.com/chart/top
 
 میتوانیم از همان انتخابگری که در محیط شل برای دریافت لیست فیلم ها استفاده کرده بودیم در درون کدمان استفاده کنیم (فعلا از دستور print برای نمایش خروجی استفاده کردیم)
 
-<script src="https://gist.github.com/doroudi/e0eb9809d48986183692bc7c855cdf49.js"></script>
+```python
+import scrapy
+import json
+from ..items import MovieItem
+
+class TopmoviesSpider(scrapy.Spider):
+    name = 'topMovies'
+    allowed_domains = ['imdb.com']
+    start_urls = ['https://www.imdb.com/chart/top/']
+
+    def parse(self, response):
+        links = response.css(".lister-list tr a::attr(href)").extract()
+        for link in links:
+            link = response.urljoin(link)
+            print(link)
+            yield scrapy.Request(url=link, callback=self.parse_details)
+
+    def parse_details(self, response):
+        json_res = json.loads(response.xpath(
+            "//script[@type='application/ld+json']/text()").extract_first())
+        film = MovieItem()
+        if 'name' in json_res:
+            film['name'] = json_res['name']
+        if 'image' in json_res:
+            film['image'] = json_res['image']
+        if 'genre' in json_res:
+            film['genre'] = json_res['genre']
+        if 'contentRating' in json_res:
+            film['contentRating'] = json_res['contentRating']
+        if 'actor' in json_res:
+            film['actor'] = json_res['actor']
+        if 'creator' in json_res:
+            film['creator'] = json_res['creator']
+        if 'description' in json_res:
+            film['description'] = json_res['description']
+        if 'keywords' in json_res:
+            film['keywords'] = json_res['keywords']
+        if 'aggregateRating' in json_res:
+            film['aggregateRating'] = json_res['aggregateRating']
+        if 'review' in json_res:
+            film['review'] = json_res['review']
+        if 'trailer' in json_res:
+            film['trailer'] = json_res['trailer']
+        if 'duration' in json_res:
+            film['duration'] = json_res['duration']
+
+        yield film
+```
 
 میتوانید خزنده ایجاد شده را با استفاده از دستور زیر اجرا کنید:
 
@@ -129,10 +187,27 @@ scrapy crawl topMovies
 ```css
 ::attr(src)
 ```
+
 برای دریافت مشخصه src تگ img است.
 
-<script src="https://gist.github.com/doroudi/d57bc6685c30236dfcc1322c27ff6e50.js"></script>
+```python
+import scrapy
+class TopmoviesSpider(scrapy.Spider):
+    name = 'topMovies'
+    allowed_domains = ['imdb.com']
+    start_urls = ['https://www.imdb.com/chart/top/']
 
+    def parse(self, response):
+        movies = response.css(".lister-list tr")
+        for movie in movies:
+            yield {
+                'image': movie.css('.posterColumn img::attr(src)').extract_first(),
+                'title': movie.css('.titleColumn a::text').extract_first(),
+                'link': movie.css('.titleColumn a::text').extract_first(),
+                'rate': movie.css('.ratingColumn strong::text').extract_first()
+            }
+            pass
+```
 
 برای ذخیره خروجی تولید شده توسط خزنده تان میتوانید از نام فایل به همراه پارامتر o در دستور اجرای خزنده استفاده کنید:
 
@@ -142,7 +217,7 @@ scrapy crawl topMovies -o movies.json
 
 خروجی
 
-![alt](./images/2/8.jpeg)
+![scrapy output of top movies from IMDB.com](./images/2/8.jpeg)
 
 پسوند فایل هایی که توسط scrapy پشتیبانی می شوند عبارتند از :
 
@@ -157,7 +232,6 @@ scrapy crawl topMovies -o movies.json
 برای دریافت صفحه جدید و اجرای متد parse روی اون نیاز داریم که از scrapy.Request استفاده کنیم ، که پارامتر دوم اون متدی است که بعد از دریافت باید عملیات parse رو انجام بده
 چون url ها بصورت relative ثبت شده اند از response.urljoin برای تصحیح لینک استفاده کردیم:
 
-
 ```python
 def parse(self, response):
     links = response.css(".lister-list tr a::attr(href)").extract()
@@ -169,11 +243,29 @@ def parse_details(self, response):
 ```
 
 برای اینکه ساختار منسجم تری داشته باشیم میتوانیم کلاس مدل برای داده های برگشتی داشته باشیم ، فایل items در پروژه Scrapy برای این منظور در نظر گرفته شده و میتونید مدل رو توی این فایل تعریف کنید:
-<script src="https://gist.github.com/doroudi/cf669a4d54a955f61614cfb19236835d.js"></script>
+
+```python
+class MovieItem(scrapy.Item):
+    url = scrapy.Field()
+    name = scrapy.Field()
+    image = scrapy.Field()
+    genre = scrapy.Field()
+    contentRating = scrapy.Field()
+    actor = scrapy.Field()
+    creator = scrapy.Field()
+    description = scrapy.Field()
+    datePublished = scrapy.Field()
+    keywords = scrapy.Field()
+    aggregateRating = scrapy.Field()
+    review = scrapy.Field()
+    trailer = scrapy.Field()
+    duration = scrapy.Field()
+    pass
+```
 
 برای دریافت فیلد ها میتوانید از روش قبلی (استفاده از انتخابگر css) استفاده کنید ولی اگر کمی در کد صفحه جزئیات فیلم در imdb دقت کنید متوجه خواهید شد که این توی این صفحه جزئیات کامل فیلم توی یک تگ اسکریپت بصورت json داره و با کمتر زحمت میتونید اطلاعات رو از اونجا دریافت کنید:
 
-![alt](./images/2/9.jpeg)
+![source](./images/2/9.jpeg)
 
 برای دریافت محتوای اسکریپت میتونید به جای انتخابگر css از xpath استفاده کنید:
 
@@ -189,7 +281,55 @@ json.loads(response.xpath("//script[@type='application/ld+json']/text()").extrac
 
 کد نهایی
 
-<script src="https://gist.github.com/doroudi/008dd3a4ab8d372e11d543a7dfb86969.js"></script>
+```python
+# -*- coding: utf-8 -*-
+import scrapy
+import json
+from ..items import MovieItem
+
+class TopmoviesSpider(scrapy.Spider):
+    name = 'topMovies'
+    allowed_domains = ['imdb.com']
+    start_urls = ['https://www.imdb.com/chart/top/']
+
+    def parse(self, response):
+        links = response.css(".lister-list tr a::attr(href)").extract()
+        for link in links:
+            link = response.urljoin(link)
+            print(link)
+            yield scrapy.Request(url=link, callback=self.parse_details)
+
+    def parse_details(self, response):
+        json_res = json.loads(response.xpath(
+            "//script[@type='application/ld+json']/text()").extract_first())
+        film = MovieItem()
+        if 'name' in json_res:
+            film['name'] = json_res['name']
+        if 'image' in json_res:
+            film['image'] = json_res['image']
+        if 'genre' in json_res:
+            film['genre'] = json_res['genre']
+        if 'contentRating' in json_res:
+            film['contentRating'] = json_res['contentRating']
+        if 'actor' in json_res:
+            film['actor'] = json_res['actor']
+        if 'creator' in json_res:
+            film['creator'] = json_res['creator']
+        if 'description' in json_res:
+            film['description'] = json_res['description']
+        if 'keywords' in json_res:
+            film['keywords'] = json_res['keywords']
+        if 'aggregateRating' in json_res:
+            film['aggregateRating'] = json_res['aggregateRating']
+        if 'review' in json_res:
+            film['review'] = json_res['review']
+        if 'trailer' in json_res:
+            film['trailer'] = json_res['trailer']
+        if 'duration' in json_res:
+            film['duration'] = json_res['duration']
+
+        yield film
+```
 
 امیدوارم مطالبی که مطرح شد به دردتون بخوره ، البته مواردی هست که فرصت پرداختن بهشون در این مقاله پیش نیومد ، مثل صفحه بندی ، تنظیمات ، pipeline ها و ... که سایت scrapy مرجع کاملی برای یادگیری این موارد هست.
 کد پروژه رو میتونید از گیت هاب [گیت هاب](https://github.com/doroudi/imdb-crawler) دریافت کنید.
