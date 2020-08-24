@@ -28,9 +28,14 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-176144150-1'
+      }
     }
   ],
-
   transformers: {
     //Add markdown support to all file-system sources
     remark: {
@@ -38,12 +43,13 @@ module.exports = {
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
       plugins: [
-        '@gridsome/remark-prismjs',
-        
+        {
+          use:'@gridsome/remark-prismjs',
+          options: {
+            showLineNumbers: true
+          }
+        }
       ],
-      options: {
-          showLineNumbers: true
-      }
     }
   }
 }

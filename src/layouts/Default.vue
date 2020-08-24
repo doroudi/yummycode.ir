@@ -7,7 +7,7 @@
       </div>
       
       <div class="header__right">        
-        <ToggleTheme />
+        <!-- <ToggleTheme /> -->
       </div>
     </header>
 
