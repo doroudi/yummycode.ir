@@ -25,7 +25,7 @@ export default {
     }
   },
   mounted() {
-    if (window.__theme == 'dark') this.activeTheme = 0
+    this.activeTheme = this.themes.findIndex(theme => theme === window.__theme)
   }
 }
 </script>
