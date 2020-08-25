@@ -1,6 +1,6 @@
 // Import main css
 import '~/assets/style/index.scss'
-import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 import {faDate} from './filters/fa-date'

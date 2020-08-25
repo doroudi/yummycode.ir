@@ -180,7 +180,7 @@ scrapy crawl topMovies
 
 ![alt](./images/2/7.jpeg)
 
-بهتر است به جای استفاده از print برای نمایش خروجی نتیجه دلخواه را به عنوان مقدار برگشتی متد parse برگردانیم ، برای مثال در کد زیر به جز عنوان ، تصویر ، لینک و امتیاز فیلم ها رو هم دریافت کردیم ، نکته جدید استفاده از 
+بهتر است به جای استفاده از print برای نمایش خروجی نتیجه دلخواه را به عنوان مقدار برگشتی متد parse برگردانیم ، برای مثال در کد زیر به جز عنوان ، تصویر ، لینک و امتیاز فیلم ها رو هم دریافت کردیم ، نکته جدید استفاده از
 
 ```css
 ::attr(src)
@@ -281,7 +281,6 @@ json.loads(response.xpath("//script[@type='application/ld+json']/text()").extrac
 کد نهایی
 
 ```python
-# -*- coding: utf-8 -*-
 import scrapy
 import json
 from ..items import MovieItem

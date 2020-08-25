@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'YummyCode!',
+  siteName: 'YummyCode',
   siteDescription: 'جایی برای به اشتراک گذاری تجربیاتم در حوزه برنامه نویسی وب ، دات نت و موبایل. سی شارپ ، جاوا اسکریپت ، تایپ اسکریپت و پایتون',
 
   templates: {
@@ -14,6 +14,12 @@ module.exports = {
   },
 
   plugins: [
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-176144150-1'
+      }
+    },
     {
       // Create posts from markdown files
       use: '@gridsome/source-filesystem',
@@ -28,14 +34,9 @@ module.exports = {
           }
         }
       }
-    },
-    {
-      use: '@gridsome/plugin-google-analytics',
-      options: {
-        id: 'UA-176144150-1'
-      }
     }
   ],
+
   transformers: {
     //Add markdown support to all file-system sources
     remark: {
@@ -43,13 +44,11 @@ module.exports = {
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
       plugins: [
-        {
-          use:'@gridsome/remark-prismjs',
-          options: {
-            showLineNumbers: true
-          }
-        }
+        '@gridsome/remark-prismjs',
       ],
+      options: {
+          showLineNumbers: true
+      }
     }
   }
 }
