@@ -12,7 +12,16 @@
 
       <g-link class="post-card__link" :to="post.path">Link</g-link>
     </div>
+
+    <div class="post-comments">
+      <vue-disqus
+        shortname="yummycode"
+        :identifier="post.title"
+      ></vue-disqus>
+    </div>
   </div>
+
+
 </template>
 
 <script>
