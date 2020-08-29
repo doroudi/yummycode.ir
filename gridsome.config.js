@@ -37,6 +37,24 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        // exclude: ['/exclude-me'],
+        config: {
+          '/*': {
+            changefreq: 'weekly',
+            priority: 0.5,
+            lastmod: '2020-08-27',
+          },
+          // '/about': {
+          //   changefreq: 'monthly',
+          //   priority: 0.7,
+          //   lastmod: '2020-05-12',
+          // }
+        }
+      }
     }
   ],
 
