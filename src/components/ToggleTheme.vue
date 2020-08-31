@@ -17,7 +17,6 @@ export default {
   methods: {
     toggleTheme() {
       this.activeTheme = (this.activeTheme + 1) % 3;
-      console.log(this.activeTheme);
       // This is using a script that is added in index.html
       window.__setPreferredTheme(
         this.themes[this.activeTheme]

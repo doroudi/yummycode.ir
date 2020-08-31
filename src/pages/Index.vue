@@ -13,7 +13,7 @@
 
 <page-query>
 query {
-  posts: allPost(filter: { published: { eq: true }},  sortBy: "date", order: DESC) {
+  posts: allPost(filter: { published: { eq: true }},  sort: [{ by: "date", order: DESC }]) {
     edges {
       node {
         id
