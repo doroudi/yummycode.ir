@@ -7,7 +7,7 @@
 module.exports = {
   siteName: 'YummyCode',
   siteDescription: 'جایی برای به اشتراک گذاری تجربیاتم در حوزه برنامه نویسی وب ، دات نت و موبایل. سی شارپ ، جاوا اسکریپت ، تایپ اسکریپت و پایتون',
-
+  siteUrl: 'https://yummycode.ir',
   templates: {
     Post: '/:title',
     Tag: '/tag/:id'
