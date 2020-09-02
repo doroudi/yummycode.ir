@@ -26,7 +26,7 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'Post',
-        path: 'content/posts/*.md',
+        path: 'content/posts/**/*.md',
         refs: {
           // Creates a GraphQL collection from 'tags' in front-matter and adds a reference.
           tags: {
@@ -64,11 +64,11 @@ module.exports = {
     }
   },
   {
-      use: "gridsome-plugin-brotli",
-      options: {
-        extensions: ["css", "html", "js", "svg", "json"],
-      },
+    use: "gridsome-plugin-brotli",
+    options: {
+      extensions: ["css", "html", "js", "svg", "json"],
     },
+  },
   ],
 
   transformers: {
