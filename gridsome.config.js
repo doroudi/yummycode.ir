@@ -4,10 +4,11 @@
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const basicInfo = require('./basicInfo.json')
 module.exports = {
-  siteName: 'YummyCode',
-  siteDescription: 'جایی برای به اشتراک گذاری تجربیاتم در حوزه برنامه نویسی وب ، دات نت و موبایل. سی شارپ ، جاوا اسکریپت ، تایپ اسکریپت و پایتون',
-  siteUrl: 'https://yummycode.ir',
+  siteName: basicInfo.siteName,
+  siteDescription: basicInfo.description,
+  siteUrl: basicInfo.url,
   templates: {
     Post: '/:title',
     Tag: '/tag/:id'
@@ -15,12 +16,9 @@ module.exports = {
 
   plugins: [
     {
-      use: 'gridsome-plugin-disqus'
-    },
-    {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: 'UA-176144150-1'
+        id: basicInfo.googleAnalyticsId
       }
     },
     {
@@ -55,7 +53,22 @@ module.exports = {
           // }
         }
       }
+    },
+    {
+    use:  'gridsome-plugin-gitalk',
+    options: {
+      clientID:  'a160bf716c362389bc7b',
+      clientSecret : '',
+      repo: '',
+      owner : 'doroudi',
     }
+  },
+  {
+      use: "gridsome-plugin-brotli",
+      options: {
+        extensions: ["css", "html", "js", "svg", "json"],
+      },
+    },
   ],
 
   transformers: {
