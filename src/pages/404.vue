@@ -22,7 +22,11 @@ export default {
     },
     destroyed: function() {
         document.querySelector('body').classList.remove('not-found')
+    },
+    metaInfo: {
+        title: '404'
     }
+
 };
 </script>
 
