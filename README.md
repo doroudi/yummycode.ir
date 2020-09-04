@@ -1,21 +1,24 @@
 # Yummycode.ir Blog in Gridsome
 
-> A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
+> My Personal blog, created using gridsome and markdown as source, based on default markdown starter kit of gridsome hosted in netlify.
 
 ## Features
+
 - Beautiful and simple design.
 - Markdown for content.
 - Tags support.
-- Dark / Light toggle.
+- Dark / Light / Mood toggle.
 - CSS variables, SCSS & BEM for styling.
 - 100, 100, 100, 100 score on Google Lighthouse.
 - Uses same front-matter fields as Dev.to.
 
-## Demo URL
+## URL
 
-https://gridsome-starter-blog.netlify.com
+[https://yummycode.ir](https://yummycode.ir)
 
-## Install
+## Contribute
+
+### Install
 
 ### 1. Install Gridsome CLI tool if you don't have
 
