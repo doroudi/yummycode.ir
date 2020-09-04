@@ -30,7 +30,7 @@ cover_image: ./images/3/cover.png
 
 ### 3-Prettier
 
-![Prettier](images/3/prettier.gif)
+![Prettier](./images/3/prettier.gif)
 
 [Download Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
@@ -42,7 +42,7 @@ GraphQL · Markdown · YAML پشتیبانی میکنه و برای سایر ز�
 
 ### 4-GitLens
 
-![GitLense](images/3/git-lense.png)
+![GitLense](./images/3/git-lense.png)
 
 [Download GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
@@ -57,7 +57,7 @@ GraphQL · Markdown · YAML پشتیبانی میکنه و برای سایر ز�
 
 ### 6- Path Intellisence
 
-![PathIntellisence](images/3/path-intellisense.gif)
+![PathIntellisence](./images/3/path-intellisense.gif)
 
 [Download Path Intellisence](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
