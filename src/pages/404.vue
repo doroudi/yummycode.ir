@@ -20,7 +20,7 @@ export default {};
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700');
 $nunito-font: 'Nunito', sans-serif;
 
