@@ -16,7 +16,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+    mounted: function() {
+        document.querySelector('body').classList.add('not-found')
+    },
+    destroyed: function() {
+        document.querySelector('body').classList.remove('not-found')
+    }
+};
 </script>
 
 
@@ -40,18 +47,7 @@ $nunito-font: 'Nunito', sans-serif;
     to   { transform: translateY(-0px); }
 }
 
-html {
-    font-family: Shabnam;
-  height: 100%;
-}
 
-body{
-  background-image: url('../assets/images/404/star.svg'),linear-gradient(to bottom, #05007A, #4D007D);
-  height: 100%;
-  margin: 0;
-  background-attachment: fixed;
-  overflow: hidden;
-}
 
 .mars{
   left:0;

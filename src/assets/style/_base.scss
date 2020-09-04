@@ -13,6 +13,15 @@ body {
 	margin:0;
 	padding:0;
 	line-height: 1.5;
+	
+	&.not-found{
+		background-image: url('../images/404/star.svg'),linear-gradient(to bottom, #05007A, #4D007D);
+		height: 100%;
+		margin: 0;
+		background-attachment: fixed;
+		overflow: hidden;
+	}
+
 }
 
 a:not(.button) {
