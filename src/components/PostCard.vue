@@ -14,10 +14,7 @@
     </div>
 
     <div class="post-comments">
-      <vue-disqus
-        shortname="yummycode"
-        :identifier="post.title"
-      ></vue-disqus>
+    
     </div>
   </div>
 

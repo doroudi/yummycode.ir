@@ -12,8 +12,18 @@
 </template>
 
 <page-query>
-query {
-  posts: allPost(filter: { published: { eq: true }},  sort: [{ by: "date", order: DESC }]) {
+query($page: Int)  {
+  posts: allPost(perPage: 10, page: $page, filter: { published: { eq: true }}, sortBy: "date") @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+      perPage
+      totalItems
+      hasPreviousPage
+      hasNextPage
+      isFirst
+      isLast
+    }
     edges {
       node {
         id
