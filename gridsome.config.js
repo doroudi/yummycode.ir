@@ -22,6 +22,9 @@ module.exports = {
       }
     },
     {
+      use: "gridsome-plugin-tailwindcss",
+    },
+    {
       // Create posts from markdown files
       use: '@gridsome/source-filesystem',
       options: {
