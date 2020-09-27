@@ -1,5 +1,6 @@
 ---
 title: افزونه های برتر visual studio code برای توسعه دهندگان وب
+enTitle: top vscode plugins for web developers
 date: 2020-09-01
 published: true
 tags: ['vscode','extension','افزونه', 'پلاگین', 'ابزار', 'visual studio']

@@ -1,6 +1,40 @@
 {
-    "siteName": "YummyCode",
-    "description": "جایی برای به اشتراک گذاری تجربیاتم در حوزه برنامه نویسی وب ، دات نت و موبایل. سی شارپ ، جاوا اسکریپت ، تایپ اسکریپت و پایتون",
-    "url": "https://yummycode.ir",
-    "googleAnalyticsId": "UA-176144150-1"
+	"siteName": "YummyCode",
+	"description": "جایی برای به اشتراک گذاری تجربیاتم در حوزه برنامه نویسی وب ، دات نت و موبایل. سی شارپ ، جاوا اسکریپت ، تایپ اسکریپت و پایتون",
+	"url": "https://yummycode.ir",
+	"googleAnalyticsId": "UA-176144150-1",
+	"repository": {
+		"url": "https://github.com/doroudi/yummycode.ir",
+		"branch": "main",
+		"name": "yummycode.ir",
+		"owner": "doroudi",
+		"clientId": "a160bf716c362389bc7b",
+		"clientSecret": "4ee2c290a3a0538330edb5fe1b30e786a15f140a"
+	},
+	"author": {
+		"name": "Saeid Doroudi",
+		"firstName": "Saeid",
+		"lastName": "Doroudi",
+		"gender": "male",
+		"email": "",
+		"gitHub": {
+			"id": "doroudi",
+			"url": "https://github.com/doroudi"
+		},
+		"linkedIn": {
+			"url": "https://www.linkedin.com/in/s.doroudi/"
+		},
+		"stackOverflow": {
+			"user": "1212017",
+			"url": "https://stackoverflow.com/users/1212017/doroudi",
+			"storyUrl": "https://stackoverflow.com/story/doroudi"
+		},
+		"twitter": {
+			"user": "@SaeidDoroudi",
+			"url": "https://twitter.com/SaeidDoroudi"
+		},
+		"youtube": {
+			"url": "https://www.youtube.com/channel/yummycode"
+		}
+	}
 }
