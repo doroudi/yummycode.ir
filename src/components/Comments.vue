@@ -1,17 +1,23 @@
 <template>
-  <Vssue :title="title" />
+  <card class="comments">
+    <Vssue :title="title" />
+  </card>
 </template>
 
 <script>
+import 'vssue/dist/vssue.css'
+import Card from '~/components/card'
 export default {
     props: {
-        title: { type: String}
-    }
+        title: { type: String }
+    },
+    components : {'card' : Card}
 }
 </script>
 
 <style lang="scss">
 .vssue {
+  direction: ltr;
   display: grid;
   grid-gap: var(--global-space-fixed-5);
   overflow: hidden;

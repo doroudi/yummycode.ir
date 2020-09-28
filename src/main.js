@@ -22,8 +22,8 @@ export default function (Vue, { router, head, isClient }) {
     api: GithubV3,
     owner: basicInfo.repository.owner,
     repo: basicInfo.repository.name,
-    clientId: decode(basicInfo.repository.clientId),
-    clientSecret: decode(basicInfo.repository.clientSecret),
+    clientId: basicInfo.repository.clientId,
+    clientSecret: basicInfo.repository.clientSecret,
     labels: ["comment"],
     prefix: "[Comment] ",
     admins: [basicInfo.repository.owner],
@@ -31,5 +31,4 @@ export default function (Vue, { router, head, isClient }) {
     locale: "en",
     autoCreateIssue: true,
   });
-
 }

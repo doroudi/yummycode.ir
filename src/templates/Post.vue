@@ -22,11 +22,13 @@
       <div class="post__footer">
         <PostTags :post="$page.post" />
       </div>
-
-      <div class="post-comments">
-        <Comments :title="title"></Comments>
-      </div>
     </div>
+
+    <card>
+      <div class="post-comments">
+        <comments :title="title"></comments>
+      </div>
+    </card>
 
     <Author class="post-author" />
   </Layout>
@@ -43,7 +45,7 @@ export default {
     Author,
     PostMeta,
     PostTags,
-    Comments,
+    'comments': Comments,
   },
   metaInfo() {
     return {
