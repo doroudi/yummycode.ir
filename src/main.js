@@ -28,7 +28,7 @@ export default function (Vue, { router, head, isClient }) {
     prefix: "[Comment] ",
     admins: [basicInfo.repository.owner],
     perPage: 999,
-    locale: "en",
+    locale: "fa",
     autoCreateIssue: true,
   });
 }
