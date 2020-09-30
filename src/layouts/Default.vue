@@ -1,41 +1,52 @@
 <template>
   <div id="app">
-
     <header class="header">
       <div class="header__left">
-        <Logo v-if="showLogo" /> 
+        <Logo v-if="showLogo" />
       </div>
-      
-      <div class="header__right">        
+
+      <div class="header__right">
         <ToggleTheme />
       </div>
     </header>
 
     <main class="main">
-      <slot/>
+      <slot />
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">کپی رایت © {{ new Date().getFullYear() }}. </span>
-      <span class="footer__links">قدرت گرفته از<a href="//gridsome.org"> Gridsome </a></span>
+      <p class="netlify">
+        <a href="https://www.netlify.com" target="_blank">
+          <img
+            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
+          />
+        </a>
+      </p>
+      <div class="footer__links">
+        <span class="footer__copyright"
+          >کپی رایت © {{ new Date().getFullYear() }}.
+        </span>
+        <span class="footer__links"
+          >قدرت گرفته از<a href="//gridsome.org"> Gridsome </a></span
+        >
+      </div>
     </footer>
-
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import ToggleTheme from '~/components/ToggleTheme.vue'
+import Logo from "~/components/Logo.vue";
+import ToggleTheme from "~/components/ToggleTheme.vue";
 
 export default {
   props: {
-    showLogo: { default: true }
+    showLogo: { default: true },
   },
   components: {
     Logo,
-    ToggleTheme
-  }
-}
+    ToggleTheme,
+  },
+};
 </script>
 
 <style lang="scss">
@@ -45,7 +56,7 @@ export default {
   align-items: center;
   min-height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
-  top:0;
+  top: 0;
   z-index: 10;
 
   &__left,
@@ -72,14 +83,25 @@ export default {
   justify-content: center;
   padding: calc(var(--space) / 2);
   text-align: center;
-  font-size: .8em;
-
+  font-size: 0.8em;
+  flex-direction: column;
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   > span {
-    margin: 0 .35em;
+    margin: 0 0.35em;
   }
 
   a {
     color: currentColor;
+  }
+
+  .netlify {
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
   }
 }
 </style>
