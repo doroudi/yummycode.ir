@@ -13,11 +13,13 @@
     "@gridsome/remark-prismjs": "^0.2.0",
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-remark": "^0.3.0",
+    "@vssue/api-github-v3": "^1.4.4",
     "gridsome": "^0.7.0",
     "gridsome-plugin-brotli": "^0.1.3",
     "gridsome-plugin-disqus": "^1.0.3",
     "gridsome-plugin-gitalk": "^0.1.0",
     "moment-jalaali": "^0.9.2",
+    "vssue": "^1.4.6",
     "vue-disqus": "^4.0.1"
   },
   "devDependencies": {
